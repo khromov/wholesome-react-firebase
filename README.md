@@ -38,3 +38,4 @@ Based on:
 * The Firebase documentation 
 * https://www.robinwieruch.de/complete-firebase-authentication-react-tutorial
 * https://www.freecodecamp.org/news/how-to-build-a-todo-application-using-reactjs-and-firebase/
+* https://medium.com/@janromaniak/working-realtime-chat-in-react-in-less-than-20-minutes-335f9cf73d69

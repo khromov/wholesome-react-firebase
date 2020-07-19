@@ -1,12 +1,13 @@
 # wholesome-react-firebase
  
-```
-<!-- The core Firebase JS SDK is always required and must be listed first -->
-<script src="/__/firebase/7.16.1/firebase-app.js"></script>
+A wholesome React + Firebase app.
 
-<!-- TODO: Add SDKs for Firebase products that you want to use
-     https://firebase.google.com/docs/web/setup#available-libraries -->
+https://wholesome-react-firebase.web.app/
 
-<!-- Initialize Firebase -->
-<script src="/__/firebase/init.js"></script>
-```
+### Acknowledgements
+
+Based on:
+
+* The Firebase documentation 
+* https://www.robinwieruch.de/complete-firebase-authentication-react-tutorial
+* https://www.freecodecamp.org/news/how-to-build-a-todo-application-using-reactjs-and-firebase/

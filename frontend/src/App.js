@@ -72,6 +72,8 @@ function App() {
         </ul>
         </nav>
         <div>
+          <h1>Message data</h1>
+          <h3>{message?.original}</h3>
           {console.log(error)}
           {console.log('Logging: ' . error?.message)}
           Status: {error?.message}

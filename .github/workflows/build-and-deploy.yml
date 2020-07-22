@@ -12,7 +12,7 @@ jobs:
       - name: Checkout Repo
         uses: actions/checkout@master
       - name: Run nvm use to set node version
-      - uses: dcodeIO/setup-node-nvm@master
+        uses: dcodeIO/setup-node-nvm@master
       - name: Install Dependencies
         run: cd frontend/ && npm install
       - name: Build

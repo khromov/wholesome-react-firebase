@@ -63,7 +63,7 @@ function App() {
       <div>
         <h2 css={css`
           color: hotpink;
-        `}>Wholesome React + Firebase</h2>
+        `}>Wholesome React + Firebase!</h2>
         <nav className="">
         <ul className="">
           <li><Link to={'/'} className="nav-link">Home</Link></li>

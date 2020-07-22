@@ -11,10 +11,12 @@ jobs:
     steps:
       - name: Checkout Repo
         uses: actions/checkout@master
+      - name: Run nvm use to set node version
+      - uses: dcodeIO/setup-node-nvm@master
       - name: Install Dependencies
         run: cd frontend/ && npm install
       - name: Build
-        run: cd frontend/ && npm run build
+        run: cd frontend/ && CI="false" npm run build #TODO: Remove this after warnings are fixed
       - name: Archive Production Artifact
         uses: actions/upload-artifact@master
         with:

@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repo
-        uses: actions/checkout@master
+        uses: actions/checkout@main
       - name: Run nvm use to set node version
         shell: bash -l {0} 
         run: nvm install
@@ -21,7 +21,7 @@ jobs:
         env:
           REACT_APP_FIREBASE_API_KEY: ${{ secrets.REACT_APP_FIREBASE_API_KEY }}
       - name: Archive Production Artifact
-        uses: actions/upload-artifact@master
+        uses: actions/upload-artifact@main
         with:
           name: frontend-build
           path: frontend/build
@@ -31,9 +31,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repo
-        uses: actions/checkout@master
+        uses: actions/checkout@main
       - name: Download Artifact
-        uses: actions/download-artifact@master
+        uses: actions/download-artifact@main
         with:
           name: frontend-build
           path: frontend/build

@@ -43,7 +43,7 @@ jobs:
           path: functions
   deploy:
     name: Deploy
-    needs: build
+    needs: [build-frontend, build-functions]
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repo

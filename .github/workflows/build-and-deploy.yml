@@ -25,39 +25,23 @@ jobs:
         with:
           name: frontend-build
           path: frontend/build
-  build-functions:
-    name: Build functions
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout Repo
-        uses: actions/checkout@main
-      - name: Run nvm use to set node version
-        shell: bash -l {0} 
-        run: cd functions && nvm install
-      - name: Install Dependencies
-        run: cd functions/ && npm ci
-      - name: Archive Production Artifact
-        uses: actions/upload-artifact@main
-        with:
-          name: functions-build
-          path: functions
   deploy:
     name: Deploy
-    needs: [build-frontend, build-functions]
+    needs: [build-frontend]
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repo
         uses: actions/checkout@main
+      - name: Run nvm use to set node version for installing Firebase functions dependencies
+        shell: bash -l {0} 
+        run: cd functions/ && nvm install
+      - name: Install dependencies for Firebase functions
+        run: cd functions/ && npm ci
       - name: Download frontend artifact
         uses: actions/download-artifact@main
         with:
           name: frontend-build
           path: frontend/build
-      - name: Download function artifact
-        uses: actions/download-artifact@main
-        with:
-          name: functions-build
-          path: functions
       - name: Deploy to Firebase
         uses: w9jds/firebase-action@master
         with:

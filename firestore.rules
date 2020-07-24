@@ -1,22 +1,9 @@
-// See also: https://stackoverflow.com/questions/46617883/configure-the-firestore-security-rules-to-allow-users-to-only-access-their-own-d
-// https://medium.com/firebase-developers/patterns-for-security-with-firebase-per-user-permissions-for-cloud-firestore-be67ee8edc4a
 rules_version = '2';
 service cloud.firestore {
   match /databases/{database}/documents {
-    match /messages/{messageId} {
-      match /users/{userId} {
-        allow read, update, delete: if request.auth != null && request.auth.uid == userId;
-        allow create: if request.auth != null;
-      }
-
-      // Users can update their messages
-			//allow update: if request.auth != null && request.auth.uid == resource.data.owner_uid;
-     
-     	// Authenticated users can create and read messages
-     	//allow create, read: if request.auth != null;
-      
-      // Nobody can delete messages
-      //allow delete: if false;
+    match /messages/{id} {
+      allow read: if request.auth.uid != null;
+      allow create, update: if request.resource.data.uid == request.auth.uid;
     }
   }
 }
